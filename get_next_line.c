@@ -16,19 +16,27 @@
 
 char	*get_nex_line(int fd)
 {
-	char	*line;
+	char		*line;
 	static char	*buffer[BUFFER_SIZE];
+	int			length;
+	int			total;
 
-	while ()
+	total = 1;
+	line = buffer;
+	while (line && buffer[length] != '\n' && buffer[lenght])
 	{
-		if (read(fd, buffer, BUFFER_SIZE) >= 0)
+		if (read(fd, buffer, BUFFER_SIZE) > 0)
 		{
-
-			ft_strlcpy(line, buffer, ft_strcharlen(buffer, '\n') + 1);
+			length = ft_strcharlen(buffer, '\n');
+			total += length;
+			line = str_realloc(line, total);
+			if (line)
+				ft_strslcpy(line, buffer, length, total - length);
 		}
 		else
 			return (NULL);
 	}
+	return (line);
 }
 char	*gnl(int fd, int )
 
