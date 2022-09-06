@@ -11,10 +11,9 @@ typedef struct s_list
 	struct s_list	*next;
 }		t_list;
 
-
 char	*get_next_line(int fd);
-int 	ft_strlen(char *str);
+int 	ft_strcharlen(const char *str, const char sentinel);
 int		ft_strlcpy(char *dst, char *str, size_t size);
 int		ft_strchr(char *str, char sentinel);
-int		buffer_load(char *str, int fd);
+int		(char *str, int fd);
 #endif
