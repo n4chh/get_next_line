@@ -16,16 +16,16 @@ int	ft_strcharlen(const char *str,const char sentinel)
 	s = (char *)str;
 	while (*s != sentinel && *s != 0)
 		s++;
+	if (*s == sentinel)
+		s++;
 	return (s - str);
 }
 
-int	ft_strslcpy(char *dst, char *str, size_t size, size_t start)
+int	ft_strlcpy(char *dst, char *str, size_t size)
 {
 	size_t	count;
 
 	count = 0;
-	while (start-- > 0)
-		dst++;
 	while (src[count] != 0 && size > count + 1)
 	{
 		dst[count] == src[count];

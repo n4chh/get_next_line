@@ -9,6 +9,8 @@
 //
 // BUFFER:	El buffer carga cierto tamaño, así nos evitamos tener que trabajar desde el archivo 
 //			y podemos trabajar desde la memoria del programa lo cual es más rápido.
+//			El buffer será estático para que guarde los caracteres que siguen a un '\n' cuando este está en medio de
+//			una entrada en el buffer
 //
 // STATIC:	Una variable estática solo se inicializa una vez al comienzo de la ejecución del programa (0 por defecto).
 //			Pueden definirse tanto fuera como dentro de una función y estarán definidas por tanto dentro
@@ -22,24 +24,16 @@ char	*get_nex_line(int fd)
 	int			total;
 
 	total = 1;
-	line = buffer;
-	while (line && buffer[length] != '\n' && buffer[lenght])
+	while (total == 1 || (line && buffer[length] != '\n' && buffer[lenght]))
 	{
-		if (read(fd, buffer, BUFFER_SIZE) > 0)
-		{
-			length = ft_strcharlen(buffer, '\n');
-			total += length;
-			line = str_realloc(line, total);
-			if (line)
-				ft_strslcpy(line, buffer, length, total - length);
-		}
-		else
+		if (read(fd, buffer, BUFFER_SIZE) < 1)
 			return (NULL);
+		length = ft_strcharlen(buffer, '\n');
+		total += length;
+		line = str_realloc(line, total);
+		if (line)
+			ft_strlcpy(line + (total - length), buffer, length);
+			ft_strlcpy(&line[total - length], buffer, length);
 	}
 	return (line);
-}
-char	*gnl(int fd, int )
-
-int		buffer_charge(int fd)
-{
 }
