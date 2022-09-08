@@ -17,23 +17,29 @@
 //			del bloque de código que pertenezcan y permanecerán activas hasta que acabe el programa.
 
 char	*get_nex_line(int fd)
-{
+
 	char		*line;
-	static char	*buffer[BUFFER_SIZE];
-	int			length;
+	char		*buffer[BUFFER_SIZE];
+	static char	*pepe[BUFFER_SIZE];
+	int			cplength;
 	int			total;
 
 	total = 1;
-	while (total == 1 || (line && buffer[length] != '\n' && buffer[lenght]))
+	if ()
+	{
+		cplength = ft_strcharlen();
+	}
+	while (total == 1 || (line && buffer[cplength] != '\n' && buffer[lenght]))
 	{
 		if (read(fd, buffer, BUFFER_SIZE) < 1)
 			return (NULL);
-		length = ft_strcharlen(buffer, '\n');
-		total += length;
+		cplength = ft_strcharlen(buffer, '\n');
+		total += cplength;
 		line = str_realloc(line, total);
 		if (line)
-			ft_strlcpy(line + (total - length), buffer, length);
-			ft_strlcpy(&line[total - length], buffer, length);
+			ft_strlcpy(line + (total - cplength), buffer, cplength);
+			ft_strlcpy(&line[total - cplength], buffer, cplength);
 	}
+	ft_strlcpy(pepe, ft_strchr(buffer), BUFFER_SIZE + 1);
 	return (line);
 }
