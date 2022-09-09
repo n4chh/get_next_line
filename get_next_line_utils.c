@@ -43,7 +43,7 @@ char	*str_realloc(char *str, size_t size)
 	astr = (char *)malloc(size * sizeof(char));
 	if (astr && str)
 	{
-		ft_strslcpy(astr, str, size, 0);
+		ft_strlcpy(astr, str, size);
 		free(str);
 		str = NULL;
 	}

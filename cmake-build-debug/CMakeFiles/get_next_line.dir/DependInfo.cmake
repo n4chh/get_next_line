@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/iortego-/github/get_next_line/main.c" "/Users/iortego-/github/get_next_line/cmake-build-debug/CMakeFiles/get_next_line.dir/main.c.o"
+  "/Users/iortego-/github/get_next_line/get_next_line.c" "/Users/iortego-/github/get_next_line/cmake-build-debug/CMakeFiles/get_next_line.dir/get_next_line.c.o"
+  "/Users/iortego-/github/get_next_line/get_next_line_utils.c" "/Users/iortego-/github/get_next_line/cmake-build-debug/CMakeFiles/get_next_line.dir/get_next_line_utils.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

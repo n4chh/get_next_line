@@ -1,13 +1,4 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/iortego-/github/get_next_line
 -- Configuring done
-CMake Error at CMakeLists.txt:6 (add_executable):
-  Cannot find source file:
-
-    main.c
-
-
-CMake Error at CMakeLists.txt:6 (add_executable):
-  No SOURCES given to target: get_next_line
-
-
-CMake Generate step failed.  Build files cannot be regenerated correctly.
+-- Generating done
+-- Build files have been written to: /Users/iortego-/github/get_next_line/cmake-build-debug

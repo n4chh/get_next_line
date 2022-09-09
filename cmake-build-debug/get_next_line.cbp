@@ -78,7 +78,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/iortego-/github/get_next_line/main.c">
+		<Unit filename="/Users/iortego-/github/get_next_line/get_next_line.c">
+			<Option target="get_next_line"/>
+		</Unit>
+		<Unit filename="/Users/iortego-/github/get_next_line/get_next_line.h">
+			<Option target="get_next_line"/>
+		</Unit>
+		<Unit filename="/Users/iortego-/github/get_next_line/get_next_line_utils.c">
 			<Option target="get_next_line"/>
 		</Unit>
 		<Unit filename="/Users/iortego-/github/get_next_line/CMakeLists.txt">

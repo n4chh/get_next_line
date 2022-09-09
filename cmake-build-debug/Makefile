@@ -129,29 +129,53 @@ get_next_line/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/build
 .PHONY : get_next_line/fast
 
-main.o: main.c.o
-.PHONY : main.o
+get_next_line.o: get_next_line.c.o
+.PHONY : get_next_line.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/main.c.o
-.PHONY : main.c.o
+get_next_line.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line.c.o
+.PHONY : get_next_line.c.o
 
-main.i: main.c.i
-.PHONY : main.i
+get_next_line.i: get_next_line.c.i
+.PHONY : get_next_line.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/main.c.i
-.PHONY : main.c.i
+get_next_line.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line.c.i
+.PHONY : get_next_line.c.i
 
-main.s: main.c.s
-.PHONY : main.s
+get_next_line.s: get_next_line.c.s
+.PHONY : get_next_line.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/main.c.s
-.PHONY : main.c.s
+get_next_line.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line.c.s
+.PHONY : get_next_line.c.s
+
+get_next_line_utils.o: get_next_line_utils.c.o
+.PHONY : get_next_line_utils.o
+
+# target to build an object file
+get_next_line_utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line_utils.c.o
+.PHONY : get_next_line_utils.c.o
+
+get_next_line_utils.i: get_next_line_utils.c.i
+.PHONY : get_next_line_utils.i
+
+# target to preprocess a source file
+get_next_line_utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line_utils.c.i
+.PHONY : get_next_line_utils.c.i
+
+get_next_line_utils.s: get_next_line_utils.c.s
+.PHONY : get_next_line_utils.s
+
+# target to generate assembly for a file
+get_next_line_utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line_utils.c.s
+.PHONY : get_next_line_utils.c.s
 
 # Help Target
 help:
@@ -162,9 +186,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... get_next_line"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... get_next_line.o"
+	@echo "... get_next_line.i"
+	@echo "... get_next_line.s"
+	@echo "... get_next_line_utils.o"
+	@echo "... get_next_line_utils.i"
+	@echo "... get_next_line_utils.s"
 .PHONY : help
 
 

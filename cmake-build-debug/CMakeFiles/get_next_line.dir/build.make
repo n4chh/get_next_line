@@ -66,30 +66,45 @@ include CMakeFiles/get_next_line.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/get_next_line.dir/flags.make
 
-CMakeFiles/get_next_line.dir/main.c.o: CMakeFiles/get_next_line.dir/flags.make
-CMakeFiles/get_next_line.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/iortego-/github/get_next_line/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/get_next_line.dir/main.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/get_next_line.dir/main.c.o -c /Users/iortego-/github/get_next_line/main.c
+CMakeFiles/get_next_line.dir/get_next_line.c.o: CMakeFiles/get_next_line.dir/flags.make
+CMakeFiles/get_next_line.dir/get_next_line.c.o: ../get_next_line.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/iortego-/github/get_next_line/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/get_next_line.dir/get_next_line.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/get_next_line.dir/get_next_line.c.o -c /Users/iortego-/github/get_next_line/get_next_line.c
 
-CMakeFiles/get_next_line.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/get_next_line.dir/main.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/iortego-/github/get_next_line/main.c > CMakeFiles/get_next_line.dir/main.c.i
+CMakeFiles/get_next_line.dir/get_next_line.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/get_next_line.dir/get_next_line.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/iortego-/github/get_next_line/get_next_line.c > CMakeFiles/get_next_line.dir/get_next_line.c.i
 
-CMakeFiles/get_next_line.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/get_next_line.dir/main.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/iortego-/github/get_next_line/main.c -o CMakeFiles/get_next_line.dir/main.c.s
+CMakeFiles/get_next_line.dir/get_next_line.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/get_next_line.dir/get_next_line.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/iortego-/github/get_next_line/get_next_line.c -o CMakeFiles/get_next_line.dir/get_next_line.c.s
+
+CMakeFiles/get_next_line.dir/get_next_line_utils.c.o: CMakeFiles/get_next_line.dir/flags.make
+CMakeFiles/get_next_line.dir/get_next_line_utils.c.o: ../get_next_line_utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/iortego-/github/get_next_line/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/get_next_line.dir/get_next_line_utils.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/get_next_line.dir/get_next_line_utils.c.o -c /Users/iortego-/github/get_next_line/get_next_line_utils.c
+
+CMakeFiles/get_next_line.dir/get_next_line_utils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/get_next_line.dir/get_next_line_utils.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/iortego-/github/get_next_line/get_next_line_utils.c > CMakeFiles/get_next_line.dir/get_next_line_utils.c.i
+
+CMakeFiles/get_next_line.dir/get_next_line_utils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/get_next_line.dir/get_next_line_utils.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/iortego-/github/get_next_line/get_next_line_utils.c -o CMakeFiles/get_next_line.dir/get_next_line_utils.c.s
 
 # Object files for target get_next_line
 get_next_line_OBJECTS = \
-"CMakeFiles/get_next_line.dir/main.c.o"
+"CMakeFiles/get_next_line.dir/get_next_line.c.o" \
+"CMakeFiles/get_next_line.dir/get_next_line_utils.c.o"
 
 # External object files for target get_next_line
 get_next_line_EXTERNAL_OBJECTS =
 
-get_next_line: CMakeFiles/get_next_line.dir/main.c.o
+get_next_line: CMakeFiles/get_next_line.dir/get_next_line.c.o
+get_next_line: CMakeFiles/get_next_line.dir/get_next_line_utils.c.o
 get_next_line: CMakeFiles/get_next_line.dir/build.make
 get_next_line: CMakeFiles/get_next_line.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/iortego-/github/get_next_line/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable get_next_line"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/iortego-/github/get_next_line/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable get_next_line"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/get_next_line.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
