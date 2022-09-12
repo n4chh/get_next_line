@@ -23,6 +23,7 @@ int	ft_strcharlen(const char *str,const char sentinel)
 
 int	ft_strlcpy(char *dst, char *src, size_t size)
 {
+
 	size_t	count;
 
 	count = 0;

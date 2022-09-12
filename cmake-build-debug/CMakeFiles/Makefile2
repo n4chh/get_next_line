@@ -54,10 +54,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/iortego-/github/get_next_line
+CMAKE_SOURCE_DIR = /Users/nachh/github/get_next_line
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/iortego-/github/get_next_line/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/nachh/github/get_next_line/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/get_next_line.dir/clean
 CMakeFiles/get_next_line.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/iortego-/github/get_next_line/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target get_next_line"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/nachh/github/get_next_line/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target get_next_line"
 .PHONY : CMakeFiles/get_next_line.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/get_next_line.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/iortego-/github/get_next_line/cmake-build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nachh/github/get_next_line/cmake-build-debug/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/get_next_line.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/iortego-/github/get_next_line/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nachh/github/get_next_line/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/get_next_line.dir/rule
 
 # Convenience name for target.
