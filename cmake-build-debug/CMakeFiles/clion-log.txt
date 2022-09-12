@@ -1,4 +1,7 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/iortego-/github/get_next_line
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/iortego-/github/get_next_line/cmake-build-debug
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/iortego-/github/get_next_line
+CMake Error at CMakeLists.txt:1 (cmake_minimum_required):
+  CMake 3.20 or higher is required.  You are running version 3.17.3
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/iortego-/github/get_next_line/cmake-build-debug/CMakeFiles/CMakeOutput.log".

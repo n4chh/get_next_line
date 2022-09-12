@@ -21,19 +21,19 @@ int	ft_strcharlen(const char *str,const char sentinel)
 	return (s - str);
 }
 
-int	ft_strlcpy(char *dst, char *str, size_t size)
+int	ft_strlcpy(char *dst, char *src, size_t size)
 {
 	size_t	count;
 
 	count = 0;
 	while (src[count] != 0 && size > count + 1)
 	{
-		dst[count] == src[count];
+		dst[count] = src[count];
 		count++;
 	}
 	if (size != 0)
 		dst[count] = 0;
-	return (ft_strcharlen(str, 0));
+	return (ft_strcharlen(src, 0));
 }
 
 char	*str_realloc(char *str, size_t size)
