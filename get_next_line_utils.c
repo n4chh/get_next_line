@@ -1,12 +1,10 @@
 #include "get_next_line.h"
 
-int	ft_strchr(char *str, char sentinel)
+char	*ft_strchr(char *str, char sentinel)
 {
-	while (*str != sentinel)
+	while (*str && *str != sentinel)
 		str++;
-	if (*str == sentinel)
-		return (1);
-	return (0);
+	return (str);
 }
 
 int	ft_strcharlen(const char *str,const char sentinel)

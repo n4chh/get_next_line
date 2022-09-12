@@ -19,34 +19,41 @@
 char	*get_nex_line(int fd)
 {
 	char		*line;
-	char		*buffer[BUFFER_SIZE + 1];
-	static char	*pepe[BUFFER_SIZE + 1];
+	char		buffer[BUFFER_SIZE];
+	static char	pepe[BUFFER_SIZE];
 	int			cplength;
 	int			total;
 
 	total = 1;
 	if (*pepe == '\n')
-		return (line);
+		return (line = *(pepe++), line);
 	else if (*pepe)
-    {
-        line = malloc((ft_strcharlen(pepe, '\n') + 1) * sizeof(char));
-        ft_strlcpy(line, pepe, BUFFER_SIZE + 1);
-        pepe = ft_strchr(pepe, '\n');
-    }
-    while (total == 1 || line && buffer[cplength] != '\n' && buffer[cplength])
 	{
-		if (read(fd, buffer, BUFFER_SIZE) < 0)
-			return (NULL);
-		cplength = ft_strcharlen(buffer, '\n');
-		total += cplength;
-		line = str_realloc(line, total);
-        if (line)
-	    	ft_strlcpy(&line[total - cplength], buffer, cplength);
+		total += ft_strcharlen(pepe, '\n');
+		line = (char *)malloc(total * sizeof(char));
+		ft_strlcpy(line, pepe, total);
+		pepe = ft_strchr(pepe, '\n');
 	}
-    if (!*pepe)
-    {
-        pepe -= BUFFER_SIZE ;
-        ft_strlcpy(pepe, ft_strchr(buffer), BUFFER_SIZE + 1);
-    }
-    return (line);
+
+	if
+		while (total == 1 || line && buffer[cplength] != '\n' && buffer[cplength])
+		{
+			if (read(fd, buffer, BUFFER_SIZE) < 0)
+				return (NULL);
+			cplength = ft_strcharlen(buffer, '\n');
+			total += cplength;
+			line = str_realloc(line, total);
+			if (line)
+				ft_strlcpy(&line[total - cplength], buffer, cplength);
+		}
+
+
+
+	if (!*pepe)
+	{
+		pepe -= BUFFER_SIZE;
+		ft_strlcpy(pepe, ft_strchr(buffer), BUFFER_SIZE + 1);
+	}
+	return (line);
 }
+
