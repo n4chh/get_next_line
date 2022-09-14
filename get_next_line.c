@@ -72,5 +72,4 @@ char	*get_nex_line(int fd)
 	}
 	if (lecture < 0)
 		return (NULL);
-	return (line);
 }
