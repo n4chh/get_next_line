@@ -16,7 +16,7 @@ int	ft_strcharlen(const char *str,const char sentinel)
 		s++;
 	if (*s == sentinel)
 		s++;
-	return (s - str);
+	return ((int)(s - str));
 }
 
 int	ft_strlcpy(char *dst, char *src, size_t size)
@@ -46,5 +46,5 @@ char	*str_realloc(char *str, size_t size)
 		free(str);
 		str = NULL;
 	}
-	return (astr)
+	return (astr);
 }

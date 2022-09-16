@@ -16,28 +16,29 @@
 //			Pueden definirse tanto fuera como dentro de una función y estarán definidas por tanto dentro
 //			del bloque de código que pertenezcan y permanecerán activas hasta que acabe el programa.
 
-char	*get_nex_line(int fd)
+char	*get_next_line(int fd)
 {
-	char		*line;
-	static char	buffer[BUFFER_SIZE + 1];
-	int			cplength;
-	int			lecture;
-	int			total;
+	char			*line;
+	static t_buffer	buffer;
+	int				cplength;
+	int				lecture;
+	int				total;
 
 	total = 1;
 	line = NULL;
-	while (total == 1 || line && lecture && cplenght)
+	while (total == 1 || (line && lecture > 0 && line[total - 2] != '\n'))
 	{
-		cplength = ft_strcharlen(buffer, '\n');
-		if (!cplenght) {
-			lecture = read(fd, buffer, BUFFER_SIZE);
-			buffer[BUFFER_SIZE] = 0;
-		}
-		else
-			buffer[BUFFER_SIZE] += cplength;
+		cplength = ft_strcharlen(buffer.array, '\n');
+		total += cplength;
+		buffer.start += cplength;
 		line = str_realloc(line, total);
 		if (line)
-			ft_strlcpy(line, buffer + buffer[BUFFER_SIZE], cplenght + 1);
+			ft_strlcpy(line + total - cplength - 1, buffer.array + buffer.start, cplength);
+		if (!cplength || cplength == BUFFER_SIZE)
+		{
+			lecture = read(fd, buffer.array, BUFFER_SIZE);
+			buffer.start = 0;
+		}
 	}
 	if (lecture < 0)
 		return (NULL);

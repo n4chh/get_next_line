@@ -5,12 +5,11 @@
 #include <stdio.h>
 #include <unistd.h>
 
-typedef struct s_length
+typedef struct s_buffer
 {
-	int copylenght;
-	int	total;
-	int buffercount;
-}		t_length;
+	char	array[BUFFER_SIZE + 1];
+	int 	start;
+}			t_buffer;
 
 char	*get_next_line(int fd);
 int		ft_strcharlen(const char *str, const char sentinel);
