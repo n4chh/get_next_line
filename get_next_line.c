@@ -25,8 +25,9 @@ char	*get_next_line(int fd)
 	int				total;
 
 	total = 1;
+	lecture = -42;
 	line = NULL;
-	while (total == 1 || (line && lecture > 0 && line[total - 2] != '\n'))
+	while (lecture != -42 || (line && lecture > 0 && line[total - 2] != '\n'))
 	{
 		cplength = ft_strcharlen(buffer.array, '\n');
 		total += cplength;

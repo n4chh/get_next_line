@@ -8,7 +8,7 @@
 typedef struct s_buffer
 {
 	char	array[BUFFER_SIZE + 1];
-	int 	start;
+	int		start;
 }			t_buffer;
 
 char	*get_next_line(int fd);
