@@ -27,21 +27,22 @@ char	*get_next_line(int fd)
 	total = 1;
 	lecture = -42;
 	line = NULL;
-	while (lecture != -42 || (line && lecture > 0 && line[total - 2] != '\n'))
+	while (lecture == -42 || (line && lecture > 0 && line[total - 2] != '\n'))
 	{
 		cplength = ft_strcharlen(buffer.array, '\n');
 		total += cplength;
 		buffer.start += cplength;
 		line = str_realloc(line, total);
 		if (line)
-			ft_strlcpy(line + total - cplength - 1, buffer.array + buffer.start, cplength);
+			ft_strlcpy(line + total - cplength - 1, buffer.array, cplength);
 		if (!cplength || cplength == BUFFER_SIZE)
 		{
 			lecture = read(fd, buffer.array, BUFFER_SIZE);
+			buffer.array[lecture] = '\0';
 			buffer.start = 0;
 		}
 	}
 	if (lecture < 0)
-		return (NULL);
+		return (free(line), NULL);
 	return (line);
 }

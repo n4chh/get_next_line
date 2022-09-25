@@ -1,6 +1,10 @@
 #ifndef GET_NEXT_LINE_H
 #define GET_NEXT_LINE_H
 
+#ifndef BUFFER_SIZE
+#define BUFFER_SIZE 16
+#endif
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -17,4 +21,5 @@ int		ft_strlcpy(char *dst, char *str, size_t size);
 char	*ft_strchr(char *str, char sentinel);
 char	*str_realloc(char *str, size_t size);
 int 	ft_buffercheck(char *buffer);
+
 #endif
