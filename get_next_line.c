@@ -41,6 +41,7 @@ char	*get_next_line(int fd)
 			buffer.start = 0;
 		}
 	}
+
 	if (lecture < 0)
 		return (free(line), (char *)NULL);
 	return (line);
