@@ -1,12 +1,5 @@
 #include "get_next_line.h"
 
-char	*ft_strchr(char *str, char sentinel)
-{
-	while (*str && *str != sentinel)
-		str++;
-	return (str);
-}
-
 int	ft_strcharlen(const char *str, const char sentinel)
 {
 	char	*s;
@@ -19,7 +12,7 @@ int	ft_strcharlen(const char *str, const char sentinel)
 	return ((int)(s - str));
 }
 
-int	ft_strlcpy(char *dst, char *src, size_t size)
+int	ft_strncpy(char *dst, char *src, size_t size)
 {
 	size_t	count;
 
@@ -31,7 +24,7 @@ int	ft_strlcpy(char *dst, char *src, size_t size)
 	}
 	if (size != 0)
 		dst[count] = 0;
-	return (ft_strcharlen(src, 0));
+	return (size);
 }
 
 char	*str_realloc(char *str, size_t size)
@@ -39,9 +32,9 @@ char	*str_realloc(char *str, size_t size)
 	char	*astr;
 
 	astr = (char *)malloc(size * sizeof(char));
-	if (astr && str)
+	if (str && astr)
 	{
-		ft_strlcpy(astr, str, size);
+		ft_strncpy(astr, str, size);
 		free(str);
 		str = NULL;
 	}

@@ -31,18 +31,17 @@ char	*get_next_line(int fd)
 	{
 		cplength = ft_strcharlen(buffer.array, '\n');
 		total += cplength;
-		buffer.start += cplength;
 		line = str_realloc(line, total);
 		if (line)
-			ft_strlcpy(line + total - cplength - 1, buffer.array, cplength);
-		if (!cplength || cplength == BUFFER_SIZE)
+			buffer.start = ft_strncpy(line + total - cplength - 1, buffer.array + buffer.start, cplength);
+		if (buffer.start == BUFFER_SIZE || (buffer.start == 0 && buffer.array[0] == 0))
 		{
 			lecture = read(fd, buffer.array, BUFFER_SIZE);
-			buffer.array[lecture] = '\0';
+      buffer.array[lecture] = '\0';
 			buffer.start = 0;
 		}
 	}
 	if (lecture < 0)
-		return (free(line), NULL);
+		return (free(line), (char *)NULL);
 	return (line);
 }
