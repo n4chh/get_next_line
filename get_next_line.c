@@ -27,13 +27,13 @@ char	*get_next_line(int fd)
 	total = 1;
 	lecture = -42;
 	line = NULL;
-	while (lecture == -42 || (line && lecture > 0 && line[total - 2] != '\n'))
+	while (lecture == -42 || (lecture > 0 && line && line[total - 2] != '\n'))
 	{
 		cplength = ft_strcharlen(buffer.array, '\n');
 		total += cplength;
 		line = str_realloc(line, total);
 		if (line)
-			buffer.start = ft_strncpy(line + total - cplength - 1, buffer.array + buffer.start, cplength);
+		  buffer.start = ft_strncpy(line + total - cplength - 1, buffer.array + buffer.start, cplength + 1) - 1;
 		if (buffer.start == BUFFER_SIZE || (buffer.start == 0 && buffer.array[0] == 0))
 		{
 			lecture = read(fd, buffer.array, BUFFER_SIZE);
@@ -41,7 +41,6 @@ char	*get_next_line(int fd)
 			buffer.start = 0;
 		}
 	}
-
 	if (lecture < 0)
 		return (free(line), (char *)NULL);
 	return (line);
