@@ -32,12 +32,12 @@ char	*get_next_line(int fd)
 		cplength = ft_strcharlen(buffer.array + buffer.start, '\n');
 		total += cplength;
 		line = str_realloc(line, total);
-		if (line)
+		if (line && cplength != 0)
 			buffer.start = ft_strncpy(line + total - cplength - 1, buffer.array + buffer.start, cplength + 1) - 1;
 		if (buffer.start == BUFFER_SIZE || (buffer.start == 0 && buffer.array[0] == 0))
 		{
 			lecture = read(fd, buffer.array, BUFFER_SIZE);
-			buffer.array[lecture] = '\0';
+			buffer.array[lecture] = 0;
 			buffer.start = 0;
 		}
 	}
