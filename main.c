@@ -11,7 +11,8 @@ int main()
   do {
     write(0, "ent\n", 5);
     ptr = get_next_line(fd);
-    write(1, ptr, BUFFER_SIZE);                                            
+    write(1, ptr, 1000);
+    write (1, "hola", 4);
   } while (ptr != (char *)NULL && ptr[0] != 0);
   close (fd);                                                   
   return (0);                                                   
