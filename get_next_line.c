@@ -27,6 +27,10 @@ int 	charge_buffer(t_buffer *buffer, int fd)
 	}
 	return (lecture);
 }
+char 	*add_to_line(char *line, t_buffer *buffer)
+{
+	
+}
 
 char	*get_next_line(int fd)
 {
