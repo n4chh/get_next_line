@@ -15,6 +15,18 @@
 // STATIC:	Una variable estática solo se inicializa una vez al comienzo de la ejecución del programa (0 por defecto).
 //			Pueden definirse tanto fuera como dentro de una función y estarán definidas por tanto dentro
 //			del bloque de código que pertenezcan y permanecerán activas hasta que acabe el programa.
+int 	charge_buffer(t_buffer *buffer, int fd)
+{
+	int	lecture;
+
+	lecture = read(fd, buffer->array, BUFFER_SIZE);
+	if (lecture > 0)
+	{
+		buffer->array[lecture] = 0;
+		buffer->start = lecture;
+	}
+	return (lecture);
+}
 
 char	*get_next_line(int fd)
 {
@@ -23,23 +35,27 @@ char	*get_next_line(int fd)
 	int				cplength;
 	int				lecture;
 	int				total;
+	int 			linestart;
 
 	total = 1;
-	lecture = -42;
 	line = NULL;
-	while (lecture == -42 || (lecture > 0 && line && line[total - 2] != '\n'))
+	while (lecture > 0)
 	{
 		cplength = ft_strcharlen(buffer.array + buffer.start, '\n');
+		if (cplength == 0)
+			lecture = charge_buffer(&buffer, fd);
 		total += cplength;
 		line = str_realloc(line, total);
-		if (line && cplength != 0)
-			buffer.start = ft_strncpy(line + total - cplength - 1, buffer.array + buffer.start, cplength + 1) - 1;
-		if (buffer.start == BUFFER_SIZE || (buffer.start == 0 && buffer.array[0] == 0))
+		linestart = total - cplength - 1;
+		if (line)
 		{
-			lecture = read(fd, buffer.array, BUFFER_SIZE);
-			buffer.array[lecture] = 0;
-			buffer.start = 0;
+			buffer.start = ft_strncpy(line + linestart, buffer.array + buffer.start, cplength + 1) - 1;
+			if (buffer.array[buffer.start] == '\n')
+				buffer.start++;
+			if (line[total - 2] == '\n')
+				return (line);
 		}
+		printf("buffer.start %d\n %d\n", lecture, cplength);
 	}
 	if (lecture < 0)
 		return (free(line), (char *)NULL);

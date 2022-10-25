@@ -24,7 +24,7 @@ int	ft_strncpy(char *dst, char *src, size_t size)
 	}
 	if (size != 0)
 		dst[count] = 0;
-	return (size);
+	return (count);
 }
 
 char	*str_realloc(char *str, size_t size)
