@@ -20,10 +20,10 @@ int 	charge_buffer(t_buffer *buffer, int fd)
 	int	lecture;
 
 	lecture = read(fd, buffer->array, BUFFER_SIZE);
-	if (lecture > 0)
+	if (lecture >= 0)
 	{
 		buffer->array[lecture] = 0;
-		buffer->start = lecture;
+		buffer->start = 0;
 	}
 	return (lecture);
 }
@@ -35,13 +35,12 @@ char 	*add_to_line(char *line, t_buffer *buffer, int *total, int cplength)
 	line = str_realloc(line, *total);
 	linestart = *total - cplength - 1;
 	if (line)
-	{
 		buffer->start = ft_strncpy(line + linestart, buffer->array + buffer->start, cplength + 1) - 1;
-		if (buffer->array[buffer->start] == '\n')
-			buffer->start++;
-		if (line[*total - 2] == '\n')
-			return (line);
-	}
+	if (buffer->array[buffer->start] == '\n')
+		buffer->start++;
+	if (line[*total - 2] == '\n')
+		return (line);
+	
 	return (line);
 }
 
@@ -54,15 +53,20 @@ char	*get_next_line(int fd)
 	int				total;
 
 	total = 1;
+	cplength = 1;
 	line = NULL;
-	while (lecture > 0)
+	while (cplength > 0)
 	{
-		cplength = ft_strcharlen(buffer.array + buffer.start, '\n');
 		if (cplength == 0)
 			lecture = charge_buffer(&buffer, fd);
-		if (lecture > 0)
+		cplength = ft_strcharlen(buffer.array + buffer.start, '\n');
+		if (lecture > 0 || cplength > 0)
+		{
 			line = add_to_line(line, &buffer, &total, cplength);
-		printf("buffer.start %d\n %d\n", lecture, cplength);
+			if (line[total - 2] == '\n' )
+				return (line);
+		}
+		printf("buffer.start %d\n %d\n %d\n", lecture, cplength, line[total - 2]);
 	}
 	if (lecture < 0)
 		return (free(line), (char *)NULL);
