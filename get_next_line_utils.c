@@ -7,7 +7,7 @@ int	ft_strcharlen(const char *str, const char sentinel)
 	s = (char *)str;
 	while (*s != sentinel && *s != 0)
 		s++;
-	if (*s == sentinel)
+	if (*s == sentinel && sentinel != 0)
 		s++;
 	return ((int)(s - str));
 }

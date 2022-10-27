@@ -27,23 +27,31 @@ int 	charge_buffer(t_buffer *buffer, int fd)
 	}
 	return (lecture);
 }
+
 char 	*add_to_line(char *line, t_buffer *buffer, int *total, int cplength)
 {
 	int linestart;
 
 	*total += cplength;
 	line = str_realloc(line, *total);
-	linestart = *total - cplength - 1;
+	if (cplength >= *total)
+		linestart = 0;
+	else
+		linestart = *total - cplength - 1;
 	if (line)
-		buffer->start = ft_strncpy(line + linestart, buffer->array + buffer->start, cplength + 1) - 1;
-	if (buffer->array[buffer->start] == '\n')
-		buffer->start++;
-	if (line[*total - 2] == '\n')
-		return (line);
-	
+		buffer->start += ft_strncpy(line + linestart, buffer->array + buffer->start, cplength + 1);
 	return (line);
 }
-
+int	copy_counter(t_buffer *buffer, int cplength, int *lecture, int fd)
+{
+	cplength = ft_strcharlen(buffer->array + buffer->start, '\n');
+	if (cplength == 0)
+	{
+		*lecture = charge_buffer(buffer, fd);
+		cplength = ft_strcharlen(buffer->array + buffer->start, '\n');
+	}
+	return (cplength);
+}
 char	*get_next_line(int fd)
 {
 	char			*line;
@@ -53,20 +61,20 @@ char	*get_next_line(int fd)
 	int				total;
 
 	total = 1;
-	cplength = 1;
+	cplength = copy_counter(&buffer, 42, &lecture, fd);
 	line = NULL;
 	while (cplength > 0)
 	{
-		if (cplength == 0)
-			lecture = charge_buffer(&buffer, fd);
-		cplength = ft_strcharlen(buffer.array + buffer.start, '\n');
-		if (lecture > 0 || cplength > 0)
+		if (lecture > 0 && cplength > 0)
 		{
 			line = add_to_line(line, &buffer, &total, cplength);
-			if (line[total - 2] == '\n' )
-				return (line);
+			if (line == NULL)
+				return (NULL);
+			if (line[total - 2] == '\n')
+				cplength = 0;
 		}
-		printf("buffer.start %d\n %d\n %d\n", lecture, cplength, line[total - 2]);
+		if (cplength > 0)
+			cplength = copy_counter(&buffer, cplength, &lecture, fd);
 	}
 	if (lecture < 0)
 		return (free(line), (char *)NULL);

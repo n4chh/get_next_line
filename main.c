@@ -10,12 +10,15 @@ int main() {
   count = 0;
 
   fd = open("prueba.txt", O_RDONLY);
+  // fd = open("gnlTester/files/multiple_nlx5", O_RDONLY);
   do {
       
-    printf("linea %d:\n", count);
+    write(1, "linea ", 6);
     ptr = get_next_line(fd);
-    write(1, ptr, ft_strcharlen(ptr, 0));
-    write (1, "\n",1);
+    if (ptr != NULL)
+      write(1, ptr, ft_strcharlen(ptr, 0));
+    else 
+      write(1, "NULL", 4);
     count++;
   } while (ptr != (char *)NULL);
   close (fd);
