@@ -9,11 +9,12 @@ int main() {
   int   count;
   count = 0;
 
-  fd = open("prueba.txt", O_RDONLY);
+  fd = open("gnl_lotr.txt", O_RDONLY);
+  //fd = open("prueba.txt", O_RDONLY);
   // fd = open("gnlTester/files/multiple_nlx5", O_RDONLY);
   do {
       
-    write(1, "linea ", 6);
+    //write(1, "linea ", 6);
     ptr = get_next_line(fd);
     if (ptr != NULL)
       write(1, ptr, ft_strcharlen(ptr, 0));

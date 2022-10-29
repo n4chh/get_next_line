@@ -82,8 +82,7 @@ char	*get_next_line(int fd)
 			if (line[total - 2] == '\n')
 				return (line);
 		}
-		if (cplength > 0)
-			cplength = copy_counter(&buffer, cplength, &lecture, fd);
+		cplength = copy_counter(&buffer, cplength, &lecture, fd);
 	}
 	if (lecture < 0)
 		return (free(line), (char *)NULL);
