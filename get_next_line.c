@@ -28,11 +28,28 @@ int 	charge_buffer(t_buffer *buffer, int fd)
 	return (lecture);
 }
 
+
+int	copy_counter(t_buffer *buffer, int cplength, int *lecture, int fd)
+{
+	cplength = ft_strcharlen(buffer->array + buffer->start, '\n');
+	if (cplength == 0)
+	{
+		*lecture = charge_buffer(buffer, fd);
+		if (*lecture == 0)
+			return (0);
+		cplength = ft_strcharlen(buffer->array + buffer->start, '\n'); //opcion de analizar a la vez que se copia
+	}
+	return (cplength);
+}
+
+
 char 	*add_to_line(char *line, t_buffer *buffer, int *total, int cplength)
 {
 	int linestart;
 
 	*total += cplength;
+	if (cplength < 1) // se comprueba en getnextline
+		return (NULL);
 	line = str_realloc(line, *total);
 	if (cplength >= *total)
 		linestart = 0;
@@ -42,16 +59,8 @@ char 	*add_to_line(char *line, t_buffer *buffer, int *total, int cplength)
 		buffer->start += ft_strncpy(line + linestart, buffer->array + buffer->start, cplength + 1);
 	return (line);
 }
-int	copy_counter(t_buffer *buffer, int cplength, int *lecture, int fd)
-{
-	cplength = ft_strcharlen(buffer->array + buffer->start, '\n');
-	if (cplength == 0)
-	{
-		*lecture = charge_buffer(buffer, fd);
-		cplength = ft_strcharlen(buffer->array + buffer->start, '\n');
-	}
-	return (cplength);
-}
+
+
 char	*get_next_line(int fd)
 {
 	char			*line;
@@ -71,7 +80,7 @@ char	*get_next_line(int fd)
 			if (line == NULL)
 				return (NULL);
 			if (line[total - 2] == '\n')
-				cplength = 0;
+				return (line);
 		}
 		if (cplength > 0)
 			cplength = copy_counter(&buffer, cplength, &lecture, fd);

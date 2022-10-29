@@ -12,7 +12,7 @@ int	ft_strcharlen(const char *str, const char sentinel)
 	return ((int)(s - str));
 }
 
-int	ft_strncpy(char *dst, char *src, size_t size)
+int	ft_strncpy(char *dst, char *src, size_t size)  //size tiene en cuenta el tamaño del null
 {
 	size_t	count;
 
