@@ -1,4 +1,4 @@
-#include "get_next_line.h"
+#include "../get_next_line.h"
 #include <fcntl.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -9,11 +9,11 @@ int main() {
   int   count;
   count = 0;
 
-  fd = open("gnl_lotr.txt", O_RDONLY);
+  fd = open("LOR/gnl_lotr.txt", O_RDONLY);
   //fd = open("prueba.txt", O_RDONLY);
   // fd = open("gnlTester/files/multiple_nlx5", O_RDONLY);
   do {
-      
+
     //write(1, "linea ", 6);
     ptr = get_next_line(fd);
     if (ptr != NULL)

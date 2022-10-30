@@ -15,7 +15,7 @@
 // STATIC:	Una variable estática solo se inicializa una vez al comienzo de la ejecución del programa (0 por defecto).
 //			Pueden definirse tanto fuera como dentro de una función y estarán definidas por tanto dentro
 //			del bloque de código que pertenezcan y permanecerán activas hasta que acabe el programa.
-int 	charge_buffer(t_buffer *buffer, int fd)
+int	charge_buffer(t_buffer *buffer, int fd)
 {
 	int	lecture;
 
@@ -35,7 +35,7 @@ int	copy_counter(t_buffer *buffer, int cplength, int *lecture, int fd)
 	if (cplength == 0)
 	{
 		*lecture = charge_buffer(buffer, fd);
-		if (*lecture == 0)
+		if (*lecture <= 0)
 			return (0);
 		cplength = ft_strcharlen(buffer->array + buffer->start, '\n'); //opcion de analizar a la vez que se copia
 	}
@@ -74,7 +74,7 @@ char	*get_next_line(int fd)
 	line = NULL;
 	while (cplength > 0)
 	{
-		if (lecture > 0 && cplength > 0)
+		if (cplength > 0)
 		{
 			line = add_to_line(line, &buffer, &total, cplength);
 			if (line == NULL)
