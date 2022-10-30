@@ -10,8 +10,6 @@ int main() {
   count = 0;
 
   fd = open("LOR/gnl_lotr.txt", O_RDONLY);
-  //fd = open("prueba.txt", O_RDONLY);
-  // fd = open("gnlTester/files/multiple_nlx5", O_RDONLY);
   do {
 
     //write(1, "linea ", 6);
