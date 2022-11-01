@@ -1,20 +1,5 @@
 #include "get_next_line.h"
 
-//
-// VALORES QUE DEVUELVE:
-//							- Puntero al primer elemento de la línea que tiene que terminar con un '\n'
-//							- NULL si:
-//										- No hay nada más que leer
-//										- Hay algún error
-//
-// BUFFER:	El buffer carga cierto tamaño, así nos evitamos tener que trabajar desde el archivo 
-//			y podemos trabajar desde la memoria del programa lo cual es más rápido.
-//			El buffer será estático para que guarde los caracteres que siguen a un '\n' cuando este está en medio de
-//			una entrada en el buffer
-//
-// STATIC:	Una variable estática solo se inicializa una vez al comienzo de la ejecución del programa (0 por defecto).
-//			Pueden definirse tanto fuera como dentro de una función y estarán definidas por tanto dentro
-//			del bloque de código que pertenezcan y permanecerán activas hasta que acabe el programa.
 int	charge_buffer(t_buffer *buffer, int fd)
 {
 	int	lecture;
@@ -28,7 +13,6 @@ int	charge_buffer(t_buffer *buffer, int fd)
 	return (lecture);
 }
 
-
 int	copy_counter(t_buffer *buffer, int cplength, int *lecture, int fd)
 {
 	cplength = ft_strcharlen(buffer->array + buffer->start, '\n');
@@ -37,18 +21,17 @@ int	copy_counter(t_buffer *buffer, int cplength, int *lecture, int fd)
 		*lecture = charge_buffer(buffer, fd);
 		if (*lecture <= 0)
 			return (0);
-		cplength = ft_strcharlen(buffer->array + buffer->start, '\n'); //opcion de analizar a la vez que se copia
+		cplength = ft_strcharlen(buffer->array + buffer->start, '\n');
 	}
 	return (cplength);
 }
 
-
-char 	*add_to_line(char *line, t_buffer *buffer, int *total, int cplength)
+char	*add_to_line(char *line, t_buffer *buffer, int *total, int cplength)
 {
-	int linestart;
+	int	linestart;
 
 	*total += cplength;
-	if (cplength < 1) // se comprueba en getnextline
+	if (cplength < 1)
 		return (NULL);
 	line = str_realloc(line, *total);
 	if (cplength >= *total)
@@ -56,10 +39,10 @@ char 	*add_to_line(char *line, t_buffer *buffer, int *total, int cplength)
 	else
 		linestart = *total - cplength - 1;
 	if (line)
-		buffer->start += ft_strncpy(line + linestart, buffer->array + buffer->start, cplength + 1);
+		buffer->start += ft_strncpy(line + linestart, \
+				buffer->array + buffer->start, cplength + 1);
 	return (line);
 }
-
 
 char	*get_next_line(int fd)
 {
@@ -85,6 +68,6 @@ char	*get_next_line(int fd)
 		cplength = copy_counter(&buffer, cplength, &lecture, fd);
 	}
 	if (lecture < 0)
-		return (free(line), (char *)NULL);
+		return (free(line), (char *) NULL);
 	return (line);
 }

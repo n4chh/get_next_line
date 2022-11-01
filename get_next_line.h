@@ -11,14 +11,15 @@
 
 typedef struct s_buffer
 {
-  char	array[BUFFER_SIZE + 1];
+	char	array[BUFFER_SIZE + 1];
 	int		start;
 }			t_buffer;
 
+int		charge_buffer(t_buffer *buffer, int fd);
+int		copy_counter(t_buffer *buffer, int cplength, int *lecture, int fd);
+char	*add_to_line(char *line, t_buffer *buffer, int *total, int cplength);
 char	*get_next_line(int fd);
 int		ft_strcharlen(const char *str, const char sentinel);
 int		ft_strncpy(char *dst, char *str, size_t size);
 char	*str_realloc(char *str, size_t size);
-int 	ft_buffercheck(char *buffer);
-
 #endif
