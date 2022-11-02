@@ -65,7 +65,7 @@ char	*get_next_line(int fd)
 	int				total;
 
 	total = 1;
-	cplength = copy_counter(&buffer, 42, &lecture, fd);
+	cplength = copy_counter(&buffer, CPLENGHT_INIT, &lecture, fd);
 	line = NULL;
 	while (cplength > 0)
 	{

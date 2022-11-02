@@ -17,6 +17,7 @@
 #  define BUFFER_SIZE 32
 # endif
 
+# define CPLENGHT_INIT 42
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
